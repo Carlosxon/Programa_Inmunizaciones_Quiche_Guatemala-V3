@@ -1,0 +1,6 @@
+site_name: Programa de Inmunizaciones Quiché
+
+nav:
+  - Introducción: intro/index.md
+  - Guía del Usuario: guia/index.md
+  - Desarrollo: desarrollo/index.md

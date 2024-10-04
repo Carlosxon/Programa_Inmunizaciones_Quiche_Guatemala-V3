@@ -1,0 +1,130 @@
+//DashboardController.php
+//
+
+namespace App\Http\Controllers;
+
+use App\Models\Product;
+use App\Models\StockAdjustment;
+use App\Models\StockTransfer;
+use App\Models\Warehouse;
+use App\Models\User;
+use Illuminate\Support\Facades\DB;
+use Authorizable;
+
+class DashboardController extends Controller
+{
+    public function index()
+    {
+        $user = auth()->user();
+
+        if (true) {
+            $warehouseId = $user->warehouse_id;
+
+            // Obtener conteos y datos filtrados por bodega
+            // $productCount = Product::where('warehouse_id', $warehouseId)->count();
+            // $adjustmentCount = StockAdjustment::where('warehouse_id', $warehouseId)->count();
+            $adjustmentCount = DB::table('stock_adjustments')->where('warehouse_id', $warehouseId)->count();
+            // $transferCount = StockTransfer::where('warehouse_id', $warehouseId)->count();
+            $warehouseCount = Warehouse::where('id', $warehouseId)->count();
+            $userCount = User::where('warehouse_id', $warehouseId)->count();
+
+            // Obtén los ajustes mensuales
+            // $monthlyAdjustments = StockAdjustment::where('warehouse_id', $warehouseId)
+            //     ->select(DB::raw('MONTH(created_at) as month'), DB::raw('count(*) as total'))
+            //     ->groupBy('month')
+            //     ->pluck('total', 'month')
+            //     ->toArray();
+
+            // Obtén las transferencias mensuales
+            // $monthlyTransfers = StockTransfer::where('warehouse_id', $warehouseId)
+            //     ->select(DB::raw('MONTH(created_at) as month'), DB::raw('count(*) as total'))
+            //     ->groupBy('month')
+            //     ->pluck('total', 'month')
+            //     ->toArray();
+
+            // Llena los meses para el eje X
+            // $months = array_fill(1, 12, 0);
+            // foreach ($monthlyAdjustments as $month => $total) {
+            //     $months[$month] = $total;
+            // }
+            // $monthlyAdjustments = $months;
+
+            // $months = array_fill(1, 12, 0);
+            // foreach ($monthlyTransfers as $month => $total) {
+            //     $months[$month] = $total;
+            // }
+            // $monthlyTransfers = $months;
+
+            // return view('warehouse.dashboard', compact('productCount', 'adjustmentCount', 'transferCount', 'warehouseCount', 'userCount', 'monthlyAdjustments', 'monthlyTransfers'));
+            return view('warehouse.dashboard', compact('productCount', 'adjustmentCount', 'transferCount', 'warehouseCount', 'userCount', 'monthlyAdjustments', 'monthlyTransfers'));
+        }
+
+        // abort(403, 'Unauthorized action.');
+    }
+}
+
+JULIO
+
+
+namespace App\Http\Controllers;
+
+use App\Models\Product;
+use App\Models\StockAdjustment;
+use App\Models\StockTransfer;
+use App\Models\Warehouse;
+use App\Models\User;
+use Illuminate\Support\Facades\DB;
+use Authorizable;
+
+class DashboardController extends Controller
+{
+    public function index()
+    {
+        $user = auth()->user();
+
+        if (true) {
+            $warehouseId = $user->warehouse_id;
+
+            // Obtener conteos y datos filtrados por bodega
+            $productCount = Product::where('warehouse_id', $warehouseId)->count();
+            // $adjustmentCount = StockAdjustment::where('warehouse_id', $warehouseId)->count();
+            $adjustmentCount = DB::table('stock_adjustments')->where('warehouse_id', $warehouseId)->count();
+            $transferCount =     DB::table('stock_transfers')->where('to_warehouse_id', $warehouseId)->count();
+            $warehouseCount = Warehouse::where('id', $warehouseId)->count();
+            $userCount = User::where('warehouse_id', $warehouseId)->count();
+
+            // Obtén los ajustes mensuales
+            $monthlyAdjustments = DB::table('stock_transfers')
+                ->where('to_warehouse_id', $warehouseId)
+                ->select(DB::raw('MONTH(created_at) as month'), DB::raw('count(*) as total'))
+                ->groupBy('month')
+                ->pluck('total', 'month')
+                ->toArray();
+
+            // Obtén las transferencias mensuales
+            $monthlyTransfers = DB::table('stock_transfers')
+            ->where('to_warehouse_id', $warehouseId)
+                ->select(DB::raw('MONTH(created_at) as month'), DB::raw('count(*) as total'))
+                ->groupBy('month')
+                ->pluck('total', 'month')
+                ->toArray();
+
+            // Llena los meses para el eje X
+            $months = array_fill(1, 12, 0);
+            foreach ($monthlyAdjustments as $month => $total) {
+                $months[$month] = $total;
+            }
+            $monthlyAdjustments = $months;
+
+            $months = array_fill(1, 12, 0);
+            foreach ($monthlyTransfers as $month => $total) {
+                $months[$month] = $total;
+            }
+            $monthlyTransfers = $months;
+
+            return view('admin.dashboard', compact('productCount', 'adjustmentCount', 'transferCount', 'warehouseCount', 'userCount', 'monthlyAdjustments', 'monthlyTransfers'));
+        }
+
+        abort(403, 'Unauthorized action.');
+    }
+}
