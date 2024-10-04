@@ -70,9 +70,68 @@ The Laravel framework is open-sourced software licensed under the [MIT license](
 
 
 
-
+DIAGRAMA ENTIDAD RELACIÓN
 
 ![ER](https://github.com/user-attachments/assets/e0a71fc8-d6f9-45ed-8344-e7f93ca40fa5)
+
+
+. INTERFAZ GRÁFICA DEL SISTEMA WEB 
+El sistema contará con un total de ocho módulos los cuales tendrán un menú desplegable según las funciones de cada módulo.
+●	Dashboard
+●	Insumos/Vacunas
+●	Ajuste de Insumos/Vacunas
+●	Transferencias de Insumos/Vacunas
+●	Usuarios
+●	Almacenes
+●	Configuraciones del Sistema
+●	Informes
+
+link de la pagina : https://piquiche.org
+
+![image](https://github.com/user-attachments/assets/2efba27a-779b-4eae-ad6f-8eee746e09e4)
+![image](https://github.com/user-attachments/assets/62411933-9f10-47b9-86ff-cd3b06be0b7b)
+![image](https://github.com/user-attachments/assets/878592cb-aa61-403c-9462-48ba5449553f)
+![image](https://github.com/user-attachments/assets/089bf541-4f05-42c5-9a16-0c6876c899f7)
+![image](https://github.com/user-attachments/assets/cf5ada2d-2662-47a9-91d0-20cbdc5ca334)
+![image](https://github.com/user-attachments/assets/384fa7db-fa6e-4550-b2bc-b2470677630f)
+![image](https://github.com/user-attachments/assets/6f6c13d8-6524-4ff9-b182-127140cf38e0)
+![image](https://github.com/user-attachments/assets/bb2a9c5c-2045-49ae-8122-3729f18dd93e)
+![image](https://github.com/user-attachments/assets/374da33f-aaab-4e4f-a5a8-d322642a0635)
+![image](https://github.com/user-attachments/assets/d495b250-59d9-48f5-b296-598d759bdda1)
+![image](https://github.com/user-attachments/assets/6a937bfa-4a3d-4403-80c4-3b5950118bbd)
+![image](https://github.com/user-attachments/assets/6e7a59a0-b913-4994-a3fb-4ed6a88fd930)
+![image](https://github.com/user-attachments/assets/ca69230d-44c6-47ea-86ba-74ef4842d9eb)
+![image](https://github.com/user-attachments/assets/cd41a4f9-ad3f-42ae-9771-fe6761db617c)
+![image](https://github.com/user-attachments/assets/609642bd-c61d-4b7e-92a9-dfc439fadace)
+![image](https://github.com/user-attachments/assets/fb3e2cc5-4a8b-4079-8917-7c0b8a762a41)
+![image](https://github.com/user-attachments/assets/5ec1df62-320f-4988-b8b6-6913da72706f)
+![image](https://github.com/user-attachments/assets/f810f63a-2039-42cf-bf56-cb3ab767d8b6)
+![image](https://github.com/user-attachments/assets/500c4142-6cd7-415c-8a1f-a3506b75db01)
+![image](https://github.com/user-attachments/assets/fbdcaac7-9c32-4c48-a7ba-1f7621b3bc5f)
+![image](https://github.com/user-attachments/assets/f35da208-8d53-4288-a6c0-e5ab5b7a477e)
+![image](https://github.com/user-attachments/assets/7e254141-2072-4d54-9d60-1709e981b812)
+![image](https://github.com/user-attachments/assets/e723570f-666d-49d1-a4ef-7c8f41fd4769)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
